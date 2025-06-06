@@ -587,7 +587,7 @@ static void qcm_addr_lookup_CT(void             *context,
     //
     // If this lookup doesn't meet the criteria for asynchronous action, perform the built-in, synchronous address lookup
     //
-    qdr_address_t *addr = qdr_lookup_terminus_address_CT(client->core, dir, conn, term, true, true,
+    qdr_address_t *addr = qdr_lookup_terminus_address_CT(client->core, dir, conn, term, dir != QD_INCOMING, true,
                                                          &link_route, &unavailable, &core_endpoint, &fallback);
     qdr_link_react_to_first_attach_CT(client->core, conn, addr, link, dir, source, target,
                                       link_route, unavailable, core_endpoint, fallback);
